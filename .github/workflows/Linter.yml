@@ -18,3 +18,4 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVA: true
+          VALIDATE_GOOGLE_JAVA_FORMAT: true

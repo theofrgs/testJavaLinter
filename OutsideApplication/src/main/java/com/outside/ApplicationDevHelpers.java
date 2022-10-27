@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * ApplicationDevHelpers <b>class</b>
+ * ApplicationDevHelpers <b>class</b>.
  *
  * @see Annotation
  */

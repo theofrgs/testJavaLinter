@@ -1,0 +1,5 @@
+ALTER TABLE outside_user
+    RENAME TO users;
+
+ALTER TABLE outside_user_preferences
+   RENAME TO users_preferences;

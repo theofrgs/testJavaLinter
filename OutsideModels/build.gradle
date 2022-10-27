@@ -1,0 +1,53 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'org.springframework.boot' version '2.7.1' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'io.ebean' version '13.6.0'
+}
+
+group = 'com.outside'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+    runtimeOnly 'org.postgresql:postgresql'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.8'
+    implementation 'io.ebean:ebean:13.6.0'
+    implementation 'io.ebean:ebean-querybean:13.6.0'
+    implementation 'io.ebean:ebean-migration:13.6.0'
+    implementation 'io.ebean:ebean-ddl-generator:13.6.0'
+    annotationProcessor 'io.ebean:querybean-generator:13.6.0'
+    testImplementation 'io.ebean:ebean-test:13.6.0'
+}
+
+ebean {
+    debugLevel = 0 //0 - 9
+}

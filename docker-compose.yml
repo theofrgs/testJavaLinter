@@ -1,0 +1,42 @@
+version: "3"
+services:
+
+  server:
+    image: outsideeip/${SERVER_IMAGE_NAME}:${SERVER_IMAGE_VERSION}
+    container_name: outside-server-container
+    ports:
+      - "8080:8081"
+    volumes:
+      - ./OutsideApplication/src/main/resources/application.properties:/app/OutsideApplication/src/main/resources/application.properties:ro
+      - ./OutsideServices/src/main/resources/services.properties:/app/OutsideServices/src/main/resources/services.properties:ro
+    labels:
+      - traefik.http.routers.server.rule=Host(`${SERVER_HOST}`)
+      - traefik.http.routers.server.entryPoints=websecure
+      - traefik.enable=true
+    networks:
+      - proxy
+      - outside
+    depends_on:
+      - database
+    restart: always
+
+  database:
+    container_name: outside-database-container
+    ports:
+      - 5432:5432
+    image: postgres:14.5
+    extra_hosts:
+      - "localhost:host-gateway"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./data/postgres-container-data:/var/lib/postgresql/data
+    networks:
+      - outside
+
+networks:
+  proxy:
+    external: true
+  outside:
+    driver: bridge

@@ -1,0 +1,16 @@
+# Disable default username and password for spring boot security
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+
+# SERVER PORT
+# PROD/QA 8081
+server.port=8080
+
+# DATABASE
+datasource.db.username=username
+datasource.db.password=password
+# jdbc:postgresql://host:port/db-name?currentSchema=schemaName
+# To get database host with docker : sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container-id
+datasource.db.url=jdbc:postgresql://localhost:5432/outside-example?currentSchema=outside-example
+
+# False dev mode is enable
+com.outside.prod=true

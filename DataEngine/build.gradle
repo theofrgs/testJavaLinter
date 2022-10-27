@@ -1,0 +1,30 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'org.springframework.boot' version '2.7.1' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.outside'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.18.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.18.0'
+}

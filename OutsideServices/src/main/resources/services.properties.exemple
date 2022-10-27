@@ -1,0 +1,20 @@
+# Google
+google.client.id=
+google.client.secret=
+google.auth.uri=
+google.redirect.uri=
+# -------
+
+# JWT
+jwt.secret=
+# -------
+
+# Password secret
+password.secret=
+# -------
+
+# Smtp
+smtp.host=
+smtp.user=
+smtp.password=
+# -------

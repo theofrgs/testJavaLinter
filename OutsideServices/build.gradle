@@ -1,0 +1,47 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'org.springframework.boot' version '2.7.1' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'io.ebean' version '13.6.0'
+}
+
+group = 'com.outside'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    implementation project(':OutsideModels')
+    implementation 'io.ebean:ebean:13.6.0'
+    implementation 'io.ebean:ebean-querybean:13.6.0'
+    implementation 'io.ebean:ebean-migration:13.6.0'
+    implementation 'io.ebean:ebean-ddl-generator:13.6.0'
+    annotationProcessor 'io.ebean:querybean-generator:13.6.0'
+    testImplementation 'io.ebean:ebean-test:13.6.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.18.0'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.18.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.2'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'com.google.code.gson:gson'
+	implementation group: 'io.github.cdimascio', name: 'java-dotenv', version: '5.2.2'
+    implementation 'com.auth0:java-jwt:4.0.0'
+    implementation 'com.google.guava:guava:31.0.1-jre'
+
+}

@@ -1,0 +1,9 @@
+db.user=username
+db.password=password
+db.name=outsideexample
+db.host=localhost
+
+migration.scripts=./dbMigrationScripts
+migration.reverseScripts=./dbMigrationScripts
+migration.milestones=./dbMigrationScripts
+migration.client=psql

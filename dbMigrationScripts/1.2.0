@@ -1,0 +1,7 @@
+alter table users
+    alter column id
+        set maxvalue 2147483647;
+
+alter table users
+    alter column access_token type varchar(355) using access_token::varchar(355);
+

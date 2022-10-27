@@ -1,0 +1,13 @@
+.env
+.git*
+.gradle
+.dockerignore
+bin
+build
+data
+jenkins
+Dockerfile
+docker-compose.yml
+docker-compose-dev.yml
+README.md
+dbMigrationScripts*

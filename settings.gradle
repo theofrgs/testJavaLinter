@@ -1,0 +1,7 @@
+rootProject.name = 'OutsideServer'
+
+include 'DataEngine'
+include 'OutsideApplication'
+include 'OutsideServices'
+include 'OutsideModels'
+include 'QuestEngine'

@@ -1,0 +1,2 @@
+alter table users
+    alter column access_token type varchar(255) using access_token::varchar(255);

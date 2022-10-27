@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApplicationDevHelpers {
 
+    /**
+     * pingRoute
+     */
     @GetMapping("/ping")
     public String pingRoute() {
         return "pong";
